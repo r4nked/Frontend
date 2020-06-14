@@ -1,0 +1,3 @@
+[submodule "deploy"]
+	path = deploy
+	url = git@github.com:r4nked/r4nked.github.io.git

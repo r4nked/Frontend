@@ -1,4 +1,4 @@
-import 'isomorphic-fetch'
+import 'cross-fetch/polyfill'
 import chai from 'chai'
 import sinonChai from 'sinon-chai'
 

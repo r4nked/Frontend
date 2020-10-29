@@ -1,6 +1,6 @@
 pushd deploy || exit
 git fetch
-git reset --hard origin/gh-pages
+git reset --hard origin/master
 popd || exit
 
 yarn build

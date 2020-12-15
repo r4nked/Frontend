@@ -96,7 +96,7 @@
         .reduce((errors, attr) => [...errors, ...(this.errors[attr] || [])], new Array<Error>())
     }
 
-    updateValue(value?: string | number) {
+    updateValue(value?: string | number): void {
       if (isUndefined(value)) return
 
       const stringValue = isNumber(value) ? value.toString() : value
@@ -121,13 +121,13 @@
     }
 
     .field-error {
-      color: rgb(191, 22, 22);
+      color: rgb(191 22 22);
       font-size: 12px;
     }
   }
 
   .placeholder {
-    color: rgb(169, 169, 169);
+    color: rgb(169 169 169);
     font-size: 16px;
     left: 1px;
     padding: 5px;

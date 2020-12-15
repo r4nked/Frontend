@@ -1,3 +1,8 @@
+/* eslint-disable no-param-reassign,@typescript-eslint/no-var-requires */
+
+const CompressionPlugin = require('compression-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
+
 module.exports = {
   lintOnSave: false,
 
@@ -15,5 +20,17 @@ module.exports = {
       scssRule.uses.clear()
       scssRule.use('null-loader').loader('null-loader')
     }
+
+    // speed up first load
+    config.plugins.delete('prefetch')
+    config.plugin('CompressionPlugin').use(CompressionPlugin)
+  },
+
+  configureWebpack: {
+    plugins: [
+      new StyleLintPlugin({
+        files: ['src/**/*.{vue,scss}']
+      })
+    ]
   }
 }

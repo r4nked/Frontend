@@ -51,7 +51,7 @@ describe('Rank.vue', () => {
     it("returns an empty array for a null 'm' parameter", () => {
       const [, vue] = createShallowWrapper({
         mocks: {
-          $route: { query: { m: null } }
+          $route: { params: { id: 123 }, query: { m: null } }
         }
       })
       expect(vue.matches).to.eql([])
@@ -60,7 +60,7 @@ describe('Rank.vue', () => {
     it("returns an empty array for an empty 'm' parameter", () => {
       const [, vue] = createShallowWrapper({
         mocks: {
-          $route: { query: { m: [] } }
+          $route: { params: { id: 123 }, query: { m: [] } }
         }
       })
       expect(vue.matches).to.eql([])
@@ -69,7 +69,7 @@ describe('Rank.vue', () => {
     it("returns the decoded matches for an 'm' parameter", () => {
       const [, vue] = createShallowWrapper({
         mocks: {
-          $route: { query: { m: 'ab9fd' } }
+          $route: { params: { id: 123 }, query: { m: 'ab9fd' } }
         }
       })
       expect(vue.matches).to.eql([1, 0, 0, 2, 0, 1, 0, 3, 2, 1, 3, 2, 1])
@@ -78,7 +78,7 @@ describe('Rank.vue', () => {
     it("returns the decoded matches for an 'm' array parameter", () => {
       const [, vue] = createShallowWrapper({
         mocks: {
-          $route: { query: { m: ['ab9fd'] } }
+          $route: { params: { id: 123 }, query: { m: ['ab9fd'] } }
         }
       })
       expect(vue.matches).to.eql([1, 0, 0, 2, 0, 1, 0, 3, 2, 1, 3, 2, 1])
@@ -95,7 +95,7 @@ describe('Rank.vue', () => {
     it('does nothing if the stack is null', async () => {
       const [, vue] = createShallowWrapper({
         mocks: {
-          $route: { query: { m: encode([2]) } },
+          $route: { params: { id: 123 }, query: { m: encode([2]) } },
           $router: { push: routerSpy }
         }
       })
@@ -107,7 +107,7 @@ describe('Rank.vue', () => {
     it('adds a result to the matches list', async () => {
       const [, vue] = createShallowWrapper({
         mocks: {
-          $route: { query: { m: encode([2]) } },
+          $route: { params: { id: 123 }, query: { m: encode([2]) } },
           $router: { push: routerSpy }
         }
       })
@@ -120,7 +120,7 @@ describe('Rank.vue', () => {
     it('navigates to the Results view if the matches are complete', async () => {
       const [, vue] = createShallowWrapper({
         mocks: {
-          $route: { query: { m: encode([2, 1]) } },
+          $route: { params: { id: 123 }, query: { m: encode([2, 1]) } },
           $router: { push: routerSpy }
         }
       })

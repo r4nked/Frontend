@@ -13,7 +13,10 @@
     </ol>
 
     <p v-if="canShare">
-      <a @click.prevent="share" data-cy="shareLink">{{$t('results.share.link')}}</a>
+      <button class="link" @click.prevent="share" data-cy="shareLink">{{
+          $t('results.share.link')
+        }}
+      </button>
     </p>
 
     <shared-actions :stack="stack" v-if="isShared" />
@@ -57,6 +60,8 @@
 
     share(): void {
       const name = prompt(<string> this.$t('results.share.namePrompt'))
+      if (isNull(name)) return
+
       const route = this.$router.resolve({
         name: 'StackResults',
         params: { id: this.stackID },
@@ -86,7 +91,7 @@
       list-style: none;
 
       &::before {
-        content: '#' counter(li);
+        content: "#" counter(li);
         counter-increment: li;
         display: inline-block;
         font-weight: 200;

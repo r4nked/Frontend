@@ -40,7 +40,7 @@
   import Vue from 'vue'
   import Component from 'vue-class-component'
   import {
-    cloneDeep, isNull, sample, shuffle, trim
+    cloneDeep, isNull, isString, sample, shuffle
   } from 'lodash-es'
   import { Result } from 'ts-results'
   import request from '@/utils/request'
@@ -55,6 +55,7 @@
 
   interface ScratchStack {
     name?: string;
+    // eslint-disable-next-line camelcase
     card_names?: string;
   }
 
@@ -85,9 +86,16 @@
         } else {
           this.errors = result.val
         }
-      } catch (error) {
-        console.error(error)
-        alert(error.message) // TODO
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          console.error(error)
+          alert(error.message) // TODO
+        } else if (isString(error)) {
+          console.error(error)
+          alert(error) // TODO
+        } else {
+          throw error
+        }
       }
     }
 
@@ -124,7 +132,7 @@
     padding: 20px 10px;
   }
 
-  input[type=submit] {
+  input[type="submit"] {
     cursor: pointer;
     margin-top: 20px;
   }

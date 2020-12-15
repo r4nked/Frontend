@@ -51,8 +51,12 @@ export default class LoadStack extends Vue {
       const result: Result<Stack, Errors> = await request({ path })
       if (result.ok) this.stack = result.val
       else this.error = new Error('Invalid HTTP response: 422')
-    } catch (error) {
-      this.error = error
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        this.error = error
+      } else {
+        throw error
+      }
     }
   }
 }

@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 export interface Card {
   name: string;
 }
@@ -21,10 +23,10 @@ export interface Error {
   [key: string]: number | string | null;
 }
 
-export enum Choice {
-  First = 1,
-  Second,
-  Both
-}
+// export enum Choice {
+//   First = 1,
+//   Second,
+//   Both
+// }
 
 export type Errors = Record<string, Error[]>

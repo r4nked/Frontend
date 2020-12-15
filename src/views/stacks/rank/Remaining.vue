@@ -1,6 +1,6 @@
 <template>
   <p>
-    <span id="number-remaining">{{remaining}}</span>
+    <span id="number-remaining">{{remaining}} </span>
 
     <i18n tag="span" path="rank.skipToEnd.template">
       <template #seeResults>

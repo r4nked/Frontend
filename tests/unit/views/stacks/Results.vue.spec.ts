@@ -7,7 +7,7 @@ describe('Results.vue', () => {
     it('returns the name of the person who shared the results', () => {
       const wrapper = shallowMount(Results, {
         mocks: {
-          $route: { query: { name: 'Sancho' } }
+          $route: { params: { id: 123 }, query: { name: 'Sancho' } }
         }
       })
       expect(wrapper.vm.shared).to.eql('Sancho')
@@ -16,7 +16,7 @@ describe('Results.vue', () => {
     it('returns the name of the person who shared the results (array)', () => {
       const wrapper = shallowMount(Results, {
         mocks: {
-          $route: { query: { name: ['Sancho'] } }
+          $route: { params: { id: 123 }, query: { name: ['Sancho'] } }
         }
       })
       expect(wrapper.vm.shared).to.eql('Sancho')
@@ -25,7 +25,7 @@ describe('Results.vue', () => {
     it('returns null if these are not shared results', () => {
       const wrapper = shallowMount(Results, {
         mocks: {
-          $route: { query: { name: null } }
+          $route: { params: { id: 123 }, query: { name: null } }
         }
       })
       expect(wrapper.vm.shared).to.be.null

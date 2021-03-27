@@ -41,7 +41,7 @@ In order to test the full stack, you will need to check out and run the back-end
 too. An example Procfile that does this:
 
 ```
-backend: cd Backend && rvm 2.7.2@ranked exec rails server
+backend: cd Backend && rvm 3.0.0@ranked exec rails server
 frontend: cd Frontend && yarn serve
 ```
 
@@ -60,7 +60,7 @@ Note that the E2E tests require the full stack to be started. An example
 Procfile that starts the E2E stack and opens the Cypress test runner:
 
 ```
-backend: cd Backend && rvm 2.7.2@ranked exec rails server -e cypress
+backend: cd Backend && rvm 3.0.0@ranked exec rails server -e cypress
 frontend: cd Frontend && yarn run test:e2e
 ```
 

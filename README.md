@@ -1,5 +1,4 @@
-Ranked.
-=======
+# Ranked.
 
 Ranked is a website where users can create a list of things, such as baseball
 teams or colors or baby names, and they and other users can then rank those
@@ -10,8 +9,7 @@ score and therefore final ranking.
 
 This the Vue.js and TypeScript front-end for the Ranked stack.
 
-Architecture
-------------
+## Architecture
 
 The website is architected to use the database and backend as little as
 possible. The {Stack} record contains multiple {Card} records, one for each item
@@ -27,8 +25,7 @@ Vue-i18n. The {App} class is the main layout class, and the top-level files in
 `src/views` are parent views for the top-level routes. `src/components` contains
 reusable components.
 
-Development
------------
+## Development
 
 The front-end requires a modern version of Node and Yarn. Simply check out the
 front-end repository and run `yarn install` to install dependencies.
@@ -41,18 +38,16 @@ In order to test the full stack, you will need to check out and run the back-end
 too. An example Procfile that does this:
 
 ```
-backend: cd Backend && rvm 3.0.0@ranked exec rails server
+backend: cd Backend && rvm 3.0.3@ranked exec rails server
 frontend: cd Frontend && yarn serve
 ```
 
-Documentation
--------------
+## Documentation
 
 Comprehensive documentation of all classes is available by running
 `yarn docs:generate` and opening the generated HTML website in `doc`.
 
-Tests
------
+## Tests
 
 Unit tests are written in Mocha and Chai and can be run with `yarn test:unit`.
 End-to-end tests are written in Cypress and can be run with `yarn test:e2e`.
@@ -60,7 +55,7 @@ Note that the E2E tests require the full stack to be started. An example
 Procfile that starts the E2E stack and opens the Cypress test runner:
 
 ```
-backend: cd Backend && rvm 3.0.0@ranked exec rails server -e cypress
+backend: cd Backend && rvm 3.0.3@ranked exec rails server -e cypress -b localhost
 frontend: cd Frontend && yarn run test:e2e
 ```
 

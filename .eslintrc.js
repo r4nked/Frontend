@@ -19,6 +19,7 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/consistent-type-assertions': ['error', { assertionStyle: 'angle-bracket' }],
+    '@typescript-eslint/no-loss-of-precision': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     'arrow-parens': ['error', 'as-needed'],
     'comma-dangle': ['error', 'never'],

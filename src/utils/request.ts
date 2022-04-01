@@ -6,16 +6,17 @@ let backendURL: string
 if (process.env.NODE_ENV === 'production') backendURL = 'https://r4nked.herokuapp.com'
 else backendURL = 'http://localhost:5100'
 
-export default async function request<T>(
-  {
-    method, path, body, headers
-  }: {
-    method?: string;
-    path: string;
-    body?: unknown;
-    headers?: HeadersInit;
-  }
-): Promise<Result<T, Errors>> {
+export default async function request<T>({
+  method,
+  path,
+  body,
+  headers
+}: {
+  method?: string;
+  path: string;
+  body?: unknown;
+  headers?: HeadersInit;
+}): Promise<Result<T, Errors>> {
   const url = backendURL + path
   const JSONBody = isUndefined(body) ? undefined : JSON.stringify(body)
 
@@ -33,7 +34,8 @@ export default async function request<T>(
   if (response.ok) {
     const object: T = await response.json()
     return new Ok(object)
-  } if (response.status === 422) {
+  }
+  if (response.status === 422) {
     const { errors } = await response.json()
     return new Err(errors)
   }

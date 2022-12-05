@@ -32,7 +32,7 @@ front-end repository and run `yarn install` to install dependencies.
 
 Run `yarn serve` to run the hot-reloading development server, and `yarn build`
 to build production assets. Production assets are copied to the `gh-pages`
-branch by the `deploy.sh` script.
+branch by GitHub Actions.
 
 In order to test the full stack, you will need to check out and run the back-end
 too. An example Procfile that does this:
@@ -41,6 +41,13 @@ too. An example Procfile that does this:
 backend: cd Backend && rvm 3.0.3@ranked exec rails server
 frontend: cd Frontend && yarn serve
 ```
+
+# Deployment
+
+The front-end is hosted using GitHub Pages. A `deploy.sh` script generates the
+production assets, copies them to a submodule for the GitHub Pages repository,
+and commits the updated files. The files are deployed automatically by GitHub
+upon pushing the commit.
 
 ## Documentation
 

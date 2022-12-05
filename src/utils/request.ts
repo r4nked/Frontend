@@ -3,7 +3,7 @@ import { isUndefined } from 'lodash-es'
 import { Errors } from '@/types'
 
 let backendURL: string
-if (process.env.NODE_ENV === 'production') backendURL = 'https://r4nked.herokuapp.com'
+if (process.env.NODE_ENV === 'production') backendURL = 'https://ranked.fly.dev'
 else backendURL = 'http://localhost:5100'
 
 export default async function request<T>({

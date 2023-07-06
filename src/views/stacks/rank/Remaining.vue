@@ -4,7 +4,7 @@
 
     <i18n tag="span" path="rank.skipToEnd.template">
       <template #seeResults>
-        <router-link :to="{name: 'StackResults', query: matchesQuery}" data-cy="earlyResultsLink">
+        <router-link :to="{ name: 'StackResults', query: matchesQuery }" data-cy="earlyResultsLink">
           {{$t('rank.skipToEnd.seeResults')}}
         </router-link>
       </template>

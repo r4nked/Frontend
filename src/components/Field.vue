@@ -1,38 +1,43 @@
 <template>
-  <div :class="['field-error-group', {inline: inline}]"
-       :data-cy-name="attribute"
-       data-cy="fieldGroup">
-    <textarea :aria-label="label"
-              :maxlength="maxlength"
-              :name="name"
-              :required="required"
-              :type="type"
-              :value="value"
-              @input="updateValue($event.target.value)"
-              ref="input"
-              v-bind="$attrs"
-              v-if="type === 'textarea'" />
-    <p aria-hidden="true"
-       class="placeholder textarea-placeholder"
-       ref="placeholder"
-       v-if="type === 'textarea'">{{placeholder}}</p>
+  <div
+    :class="['field-error-group', { inline }]"
+    :data-cy-name="attribute"
+    data-cy="fieldGroup">
+    <textarea
+      :aria-label="label"
+      :maxlength="maxlength"
+      :name="name"
+      :required="required"
+      :type="type"
+      :value="value"
+      @input="updateValue($event.target.value)"
+      ref="input"
+      v-bind="$attrs"
+      v-if="type === 'textarea'" />
+    <p
+      aria-hidden="true"
+      class="placeholder textarea-placeholder"
+      ref="placeholder"
+      v-if="type === 'textarea'">{{placeholder}}</p>
 
-    <input :aria-label="label"
-           :maxlength="maxlength"
-           :name="name"
-           :placeholder="placeholder"
-           :required="required"
-           :type="type"
-           :value="value"
-           @input="updateValue($event.target.value)"
-           ref="input"
-           v-bind="$attrs"
-           v-if="type !== 'textarea'" />
+    <input
+      :aria-label="label"
+      :maxlength="maxlength"
+      :name="name"
+      :placeholder="placeholder"
+      :required="required"
+      :type="type"
+      :value="value"
+      @input="updateValue($event.target.value)"
+      ref="input"
+      v-bind="$attrs"
+      v-if="type !== 'textarea'" />
 
-    <p :key="index"
-       class="field-error"
-       data-cy="fieldErrors"
-       v-for="(error, index) in errorStrings">
+    <p
+      :key="index"
+      class="field-error"
+      data-cy="fieldErrors"
+      v-for="(error, index) in errorStrings">
       {{error}}
     </p>
   </div>
@@ -92,8 +97,8 @@
     }
 
     private get fieldErrors(): Error[] {
-      return [this.attribute, ...this.errorAttributes]
-        .reduce((errors, attr) => [...errors, ...(this.errors[attr] || [])], new Array<Error>())
+      return [this.attribute, ...this.errorAttributes].
+        reduce((errors, attr) => [...errors, ...(this.errors[attr] || [])], new Array<Error>())
     }
 
     updateValue(value?: string | number): void {

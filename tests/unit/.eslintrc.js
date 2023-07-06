@@ -15,5 +15,13 @@ module.exports = {
     'mocha/no-hooks-for-single-case': 'off',
     'mocha/no-mocha-arrows': 'off',
     'mocha/no-pending-tests': 'off'
-  }
+  },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parserOptions: {
+        project: './tests/unit/tsconfig.json'
+      }
+    }
+  ]
 }

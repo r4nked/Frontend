@@ -1,10 +1,10 @@
-import '../../../setup'
-
 import { ThisTypedShallowMountOptions, Wrapper } from '@vue/test-utils'
 import { expect } from 'chai'
-import Sinon, { SinonSandbox, SinonSpyStatic } from 'sinon'
-import nock from 'nock'
+import { SinonSpyStatic } from 'sinon'
+import { http, HttpResponse } from 'msw'
 import { shallowMount } from '../../../mount'
+import backend from '../../../backend'
+import { sandbox } from '../../../setup'
 import Form from '@/views/stacks/new/Form.vue'
 
 function createShallowWrapper(attrs?: ThisTypedShallowMountOptions<Form>): [Wrapper<Form>, Form] {
@@ -14,18 +14,6 @@ function createShallowWrapper(attrs?: ThisTypedShallowMountOptions<Form>): [Wrap
 }
 
 describe('stacks/new/Form.vue', () => {
-  let sandbox: SinonSandbox
-
-  beforeEach(() => {
-    sandbox = Sinon.createSandbox()
-    nock.disableNetConnect()
-  })
-
-  afterEach(() => {
-    sandbox.restore()
-    nock.cleanAll()
-  })
-
   describe('created', () => {
     it('chooses a random placeholder', () => {
       const [, vue] = createShallowWrapper()
@@ -48,33 +36,37 @@ describe('stacks/new/Form.vue', () => {
     })
 
     it('creates a new Stack', async () => {
-      const scope = nock('http://localhost:5100').post('/stacks.json').reply(200, { id: 123 })
-
       await vue.create()
-
-      expect(routerSpy).to.have.been.calledOnceWith({ name: 'StackRank', params: { id: 123 } })
-      expect(scope.isDone()).to.be.true
+      expect(routerSpy).to.have.been.calledOnceWith({ name: 'StackRank', params: { id: '1' } })
     })
 
     it('handles validation errors', async () => {
-      const scope = nock('http://localhost:5100')
-        .post('/stacks.json')
-        .reply(422, { errors: { name: [{ error: 'can’t be blank' }] } })
+      backend.use(
+        http.post('http://localhost:5100/stacks.json', () => HttpResponse.json(
+          { errors: { name: [{ error: 'can’t be blank' }] } },
+          { status: 422 }
+        ))
+      )
 
       await vue.create()
-
       expect(vue.errors).to.eql({ name: [{ error: 'can’t be blank' }] })
-      expect(scope.isDone()).to.be.true
     })
 
-    // it('handles other errors', async () => {
-    //   const scope = nock('http://localhost:5100')
-    //     .post('/stacks.json')
-    //     .reply(500, { error: true })
-    //
-    //   await vue.create()
-    //   expect(vue.errors).to.eql('Invalid HTTP response: 500 (Internal Server Error)')
-    //   expect(scope.isDone()).to.be.true
-    // })
+    // eslint-disable-next-line mocha/no-skipped-tests
+    it.skip('handles other errors', async () => {
+      const alertSpy = sandbox.stub(window, 'alert')
+      backend.use(
+        http.post('http://localhost:5100/stacks.json', () => HttpResponse.json(
+          { error: true },
+          { status: 500 }
+        ))
+      )
+
+      await vue.create()
+      expect(alertSpy).to.have.been.calledOnceWith('Invalid HTTP response: 500 (Internal Server Error)')
+      expect(vue.errors).to.eql('Invalid HTTP response: 500 (Internal Server Error)')
+
+      alertSpy.restore()
+    })
   })
 })

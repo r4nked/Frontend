@@ -12,5 +12,13 @@ module.exports = {
   },
   extends: [
     'plugin:cypress/recommended'
+  ],
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      parserOptions: {
+        project: './tests/e2e/tsconfig.json'
+      }
+    }
   ]
 }

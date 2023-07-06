@@ -3,7 +3,7 @@
     <error :error="error" v-if="error" />
     <loading v-else-if="!loaded" />
     <div v-else>
-      <h2 data-cy="rankHeader">{{$t('rank.title', {stack: stack.name})}}.</h2>
+      <h2 data-cy="rankHeader">{{$t('rank.title', { stack: stack.name })}}.</h2>
 
       <p>{{$t('rank.prompt')}}</p>
 

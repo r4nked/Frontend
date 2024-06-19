@@ -2,16 +2,17 @@
   <form @submit.prevent="create" method="post">
     <i18n tag="header" path="newStack.header.template">
       <template #nameField>
-        <field :errors="errors"
-               :maxlength="126"
-               :placeholder="placeholder.name"
-               aria-label="Stack name"
-               class="inline"
-               data-cy="nameField"
-               name="stack[name]"
-               required
-               type="text"
-               v-model.trim="stack.name" />
+        <field
+          :errors="errors"
+          :maxlength="126"
+          :placeholder="placeholder.name"
+          aria-label="Stack name"
+          class="inline"
+          data-cy="nameField"
+          name="stack[name]"
+          required
+          type="text"
+          v-model.trim="stack.name" />
 
       </template>
       <template #ranked>
@@ -21,15 +22,16 @@
 
     <main>
       <p>{{$t('newStack.prompt')}}</p>
-      <field :error-attributes="['cards']"
-             :errors="errors"
-             :placeholder="placeholderCardNames"
-             aria-label="Stack items"
-             data-cy="cardsField"
-             name="stack[card_names]"
-             required
-             type="textarea"
-             v-model="stack.card_names" />
+      <field
+        :error-attributes="['cards']"
+        :errors="errors"
+        :placeholder="placeholderCardNames"
+        aria-label="Stack items"
+        data-cy="cardsField"
+        name="stack[card_names]"
+        required
+        type="textarea"
+        v-model="stack.card_names" />
 
       <input data-cy="stackSubmit" name="commit" type="submit" :value="$t('newStack.submit')" />
     </main>

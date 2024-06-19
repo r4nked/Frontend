@@ -14,13 +14,15 @@ function makeChoices() {
 }
 
 function factorial(n: number): number {
-  if (n === 0) return 0
-  if (n === 1) return 1
-  return n * factorial(n - 1)
+  return n <= 1 ? 1 : n * factorial(n - 1)
 }
 
 describe('Ranking things', () => {
+  beforeEach(() => cy.request('/cypress/reset'))
+
   it('displays results when finished', () => {
+    cy.visit('/#/stacks/1')
+
     const numRankings = rankings.length
     _.times(factorial(numRankings) / (factorial(numRankings - 2) * 2), makeChoices)
 
@@ -32,13 +34,11 @@ describe('Ranking things', () => {
   })
 
   it('displays results early', () => {
-    cy.dataCy('retestURL').invoke('text').then(url => {
-      cy.visit(url)
-      _.times(10, makeChoices)
+    cy.visit('/#/stacks/1')
 
-      cy.dataCy('earlyResultsLink').click()
-      cy.dataCy('resultsHeader').should('contain', 'Sci-fi shows, ranked.')
-      cy.dataCy('resultsList').get('li').should('exist')
-    })
+    _.times(10, makeChoices)
+    cy.dataCy('earlyResultsLink').click()
+    cy.dataCy('resultsHeader').should('contain', 'Sci-fi shows, ranked.')
+    cy.dataCy('resultsList').get('li').should('exist')
   })
 })

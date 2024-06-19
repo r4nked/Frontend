@@ -3,8 +3,8 @@
   <loading v-else-if="!loaded" />
 
   <div v-else>
-    <h1 data-cy="resultsHeader">{{$t('results.title', {stack: stack.name})}}</h1>
-    <h2 v-if="isShared">{{$t('results.byline', {name: shared})}}</h2>
+    <h1 data-cy="resultsHeader">{{$t('results.title', { stack: stack.name })}}</h1>
+    <h2 v-if="isShared">{{$t('results.byline', { name: shared })}}</h2>
 
     <ol data-cy="resultsList">
       <li :key="ranking.name" v-for="ranking in stack.rankings">
@@ -13,9 +13,9 @@
     </ol>
 
     <p v-if="canShare">
-      <button class="link" @click.prevent="share" data-cy="shareLink">{{
-          $t('results.share.link')
-        }}
+      <button type="button" class="link" @click.prevent="share" data-cy="shareLink">{{
+        $t('results.share.link')
+      }}
       </button>
     </p>
 

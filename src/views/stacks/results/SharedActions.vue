@@ -1,10 +1,10 @@
 <template>
   <p>
-    <router-link :to="{name: 'StackRank', params: {id: stack.id}}">
-      {{$t('results.actions.startRanking', {stack: stack.name})}}
+    <router-link :to="{ name: 'StackRank', params: { id: stack.id } }">
+      {{$t('results.actions.startRanking', { stack: stack.name })}}
     </router-link>
     <span class="dot">&middot;</span>
-    <router-link :to="{name: 'NewStack'}">
+    <router-link :to="{ name: 'NewStack' }">
       {{$t('results.actions.newStack')}}
     </router-link>
   </p>

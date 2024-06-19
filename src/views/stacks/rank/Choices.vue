@@ -1,17 +1,17 @@
 <template>
   <div class="match-pair">
     <div class="first">
-      <button class="link" @click.prevent="$emit('choose', 1)" data-cy="firstChoice">
+      <button type="button" class="link" @click.prevent="$emit('choose', 1)" data-cy="firstChoice">
         {{match[0].name}}
       </button>
     </div>
     <div class="both">
-      <button class="link" @click.prevent="$emit('choose', 3)" data-cy="bothChoice">
+      <button type="button" class="link" @click.prevent="$emit('choose', 3)" data-cy="bothChoice">
         {{$t('rank.equal')}}
       </button>
     </div>
     <div class="second">
-      <button class="link" @click.prevent="$emit('choose', 2)" data-cy="secondChoice">
+      <button type="button" class="link" @click.prevent="$emit('choose', 2)" data-cy="secondChoice">
         {{match[1].name}}
       </button>
     </div>

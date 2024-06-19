@@ -3,7 +3,7 @@ import { isUndefined } from 'lodash-es'
 import { Errors } from '@/types'
 
 let backendURL: string
-if (process.env.NODE_ENV === 'production') backendURL = 'https://ranked.fly.dev'
+if (process.env.NODE_ENV === 'production') backendURL = 'https://ranked-app.fly.dev'
 else backendURL = 'http://localhost:5100'
 
 export default async function request<T>({
@@ -27,7 +27,8 @@ export default async function request<T>({
       ...headers,
       'Content-Type': 'application/json',
       Accept: 'application/json'
-    }
+    },
+    credentials: 'include'
   })
   const response = await fetch(req)
 

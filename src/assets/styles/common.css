@@ -1,0 +1,116 @@
+:root {
+  --page-color: white;
+  --text-color: #2e2f30;
+  --error-color: rgb(191 22 22);
+  --link-color: #4682b4;
+  --focus-color: #1e90ff;
+  --border-color: #bbb;
+  --button-background-color: #999;
+  --inset-background-color: #efefef;
+  --font-size-md: 14px;
+  --font-size-xxl: calc(var(--font-size-md) * 4.5);
+  --font-size-xl: calc(var(--font-size-md) * 3.5);
+  --font-size-lg: calc(var(--font-size-md) * 2.5);
+  --font-size-sm: calc(var(--font-size-md) * 0.85);
+  --font-size-xs: calc(var(--font-size-md) * 0.75);
+  --space-md: 10px;
+  --space-xxl: calc(var(--space-md) * 4);
+  --space-xl: calc(var(--space-md) * 3);
+  --space-lg: calc(var(--space-md) * 2);
+  --space-sm: calc(var(--space-md) / 2);
+  --space-xs: calc(var(--space-md) / 4);
+  --body-min-width: 320px;
+  --body-max-width: 960px;
+  --body-padding-h: var(--space-sm);
+  --body-padding-v: var(--space-xl);
+}
+
+body {
+  min-width: calc(var(--body-min-width) - var(--body-padding-h) * 2);
+  max-width: calc(var(--body-max-width) - var(--body-padding-h) * 2);
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--body-padding-v) var(--body-padding-h);
+  color: var(--text-color);
+  background: var(--page-color);
+}
+
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-size-xxl);
+  font-weight: 800;
+  line-height: var(--font-size-xxl);
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  line-height: var(--font-size-xl);
+  margin: 0;
+  padding: 0;
+}
+
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+button {
+  margin: 0;
+  padding: var(--space-md);
+  border: 0;
+  background-color: var(--button-background-color);
+  appearance: none;
+}
+
+input[type='submit'] {
+  color: var(--page-color);
+  background-color: var(--text-color);
+}
+
+input[type='text'],
+textarea {
+  padding: var(--space-sm);
+  border: 1px solid var(--border-color);
+  outline: none;
+  background-color: var(--page-color);
+  appearance: none;
+
+  &:focus {
+    border-color: var(--focus-color);
+  }
+}
+
+h1.error {
+  margin-bottom: var(--space-md);
+  color: var(--error-color);
+}
+
+p.error {
+  font-size: var(--font-size-lg);
+  font-weight: 200;
+  color: var(--error-color);
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+button.link {
+  display: inline;
+  text-decoration: none;
+  color: var(--link-color);
+  outline: none;
+  background: none;
+}

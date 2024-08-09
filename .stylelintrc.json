@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-vue"
+  ],
+  "rules":   {
+    "max-nesting-depth":           null,
+    "selector-id-pattern":         null,
+    "selector-max-id":             null,
+    "selector-no-qualifying-type": null
+  }
+}

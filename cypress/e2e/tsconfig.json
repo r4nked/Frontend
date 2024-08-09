@@ -1,0 +1,8 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["./**/*", "../support/**/*", "../support/commands.d.ts"],
+  "compilerOptions": {
+    "isolatedModules": false,
+    "types": ["cypress", "@testing-library/cypress"]
+  }
+}

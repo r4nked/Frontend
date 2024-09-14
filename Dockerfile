@@ -4,12 +4,13 @@
 ARG NODE_VERSION=22.6.0
 FROM node:${NODE_VERSION}-slim as base
 
+LABEL fly_launch_runtime="Vite"
+
 # Vite app lives here
 WORKDIR /app
 
 # Set production environment
 ENV NODE_ENV="production"
-ARG YARN_VERSION=4.4.0
 RUN corepack enable yarn
 
 

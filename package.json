@@ -61,7 +61,7 @@
     "stylelint-config-standard-vue": "^1.0.0",
     "typedoc": "^0.26.5",
     "typescript": "^5.5.4",
-    "vite": "^5.3.5",
+    "vite": "^5.3.6",
     "vite-plugin-vue-devtools": "^7.3.7",
     "vitest": "^2.0.5",
     "vue-tsc": "^2.0.29"

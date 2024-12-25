@@ -53,7 +53,7 @@ import { useRouter } from 'vue-router'
 
 interface ScratchStack {
   name?: string
-  // eslint-disable-next-line camelcase
+
   card_names?: string
 }
 
@@ -98,13 +98,13 @@ onMounted(() => {
 
 <style scoped>
 header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: baseline;
+  padding: var(--space-md);
   font-size: var(--font-size-lg);
   font-weight: 300;
   line-height: var(--font-size-lg);
-  display: flex;
-  align-items: baseline;
-  flex-flow: row nowrap;
-  padding: var(--space-md);
   background-color: var(--inset-background-color);
 
   & > div {
@@ -124,11 +124,11 @@ main {
 
 #actions {
   display: flex;
-  align-items: center;
   flex-flow: row nowrap;
+  gap: var(--space-md);
+  align-items: center;
   justify-content: start;
   margin-top: var(--space-lg);
-  gap: var(--space-md);
 }
 
 input[type='submit'] {

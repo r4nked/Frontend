@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 import type { VueMessageType } from 'vue-i18n'
 import type { LocaleMessage } from '@intlify/core-base'
 

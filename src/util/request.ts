@@ -3,7 +3,7 @@ import { isUndefined } from 'lodash-es'
 import { type Errors } from '@/types'
 
 let backendURL: string
-if (import.meta.env.MODE === 'production') backendURL = 'https://ranked-app.fly.dev'
+if (import.meta.env.MODE === 'production') backendURL = 'https://ranked-backend.fly.dev'
 else backendURL = 'http://127.0.0.1:5000'
 
 export default async function request<T>({

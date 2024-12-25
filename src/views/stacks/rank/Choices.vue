@@ -58,8 +58,8 @@ const match = computed<[Card, Card]>(() => {
 <style scoped>
 .match-pair {
   max-width: calc(var(--body-max-width) / 2);
-  margin: var(--space-lg) auto var(--space-xxl);
   padding: var(--space-lg);
+  margin: var(--space-lg) auto var(--space-xxl);
   border: 4px solid var(--page-color);
 
   div {

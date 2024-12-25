@@ -2,8 +2,6 @@ import rankings from '../fixtures/rankings'
 import { shuffle } from 'lodash-es'
 
 describe('Creating a stack', () => {
-  beforeEach(() => cy.request('GET', `${Cypress.env('apiHost')}/cypress/reset`))
-
   it('handles errors', () => {
     cy.visit('/')
 

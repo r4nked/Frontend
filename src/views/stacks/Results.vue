@@ -74,8 +74,8 @@ h2 {
 }
 
 ol {
-  margin: var(--space-xxl) 0;
   padding: 0;
+  margin: var(--space-xxl) 0;
   counter-reset: li;
 
   & > li {
@@ -85,13 +85,13 @@ ol {
     list-style: none;
 
     &::before {
-      font-weight: 200;
       display: inline-block;
       width: var(--space-xl);
       margin-right: 1.5em;
+      font-weight: 200;
+      text-align: right;
       content: '#' counter(li);
       counter-increment: li;
-      text-align: right;
     }
   }
 }

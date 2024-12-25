@@ -14,7 +14,7 @@ const { t } = useI18n()
 
 <style scoped>
 p {
-  font-size: var(--font-size-md);
   margin-top: var(--space-xxl);
+  font-size: var(--font-size-md);
 }
 </style>

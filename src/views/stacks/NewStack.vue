@@ -18,9 +18,9 @@ const { t } = useI18n()
 
 <style scoped>
 h2 {
+  padding: 0;
+  margin: 0 0 var(--space-xxl);
   font-size: var(--font-size-md);
   font-weight: normal;
-  margin: 0 0 var(--space-xxl);
-  padding: 0;
 }
 </style>

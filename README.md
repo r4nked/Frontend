@@ -63,7 +63,7 @@ Procfile that starts the E2E stack and opens the Cypress test runner:
 
 ```
 backend: cd Backend && rvm 3.4.1@ranked exec rails server -e cypress -b 127.0.0.1
-frontend: cd Frontend && yarn run test:e2e:dev
+frontend: cd Frontend && yarn test:e2e:dev
 ```
 
 The entire E2E test suite must be run in order, as the tests do not work in

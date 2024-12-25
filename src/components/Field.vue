@@ -115,8 +115,8 @@ const errorStrings = computed(() =>
 
 input,
 textarea {
-  display: block;
   box-sizing: border-box;
+  display: block;
   width: 100%;
 }
 

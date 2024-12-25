@@ -1,7 +1,10 @@
+/// <reference types="cypress" />
+/// <reference types="@testing-library/cypress" />
+
 declare global {
   namespace Cypress {
-    interface Chainable {
-    }
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+    interface Chainable {}
   }
 }
 

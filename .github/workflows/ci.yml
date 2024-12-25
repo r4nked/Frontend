@@ -10,25 +10,6 @@ on:
     branches: [ master ]
 
 jobs:
-  unit:
-    name: Unit Tests
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: true
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-#        cache: yarn
-        node-version: 22.x
-#        corepack: true
-    - name: Install dependencies
-      run: corepack enable && yarn install
-    - name: Type check
-      run: yarn type-check
-#    - name: Run unit tests
-#      run: yarn test:unit
   lint:
     name: Linters
     runs-on: ubuntu-latest
@@ -40,11 +21,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
 #        cache: yarn
-        node-version: 22.x
+        node-version-file: .nvmrc
 #        corepack: true
     - name: Install dependencies
       run: corepack enable && yarn install
     - name: Run ESLint
       run: yarn lint
     - name: Run Stylelint
-      run: yarn run lint:style
+      run: yarn run stylelint

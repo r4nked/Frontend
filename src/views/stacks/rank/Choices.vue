@@ -50,16 +50,16 @@ const emit = defineEmits<{
 }>()
 
 const match = computed<[Card, Card]>(() => {
-  const indexes = props.stack.pairs_order[props.matches.length]
-  return [props.stack.cards[indexes[0]], props.stack.cards[indexes[1]]]
+  const indexes = props.stack.pairs_order[props.matches.length]!
+  return [props.stack.cards[indexes[0]]!, props.stack.cards[indexes[1]]!]
 })
 </script>
 
 <style scoped>
 .match-pair {
   max-width: calc(var(--body-max-width) / 2);
-  margin: var(--space-lg) auto var(--space-xxl);
   padding: var(--space-lg);
+  margin: var(--space-lg) auto var(--space-xxl);
   border: 4px solid var(--page-color);
 
   div {

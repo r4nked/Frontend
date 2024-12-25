@@ -4,12 +4,13 @@
 ARG NODE_VERSION=22.6.0
 FROM node:${NODE_VERSION}-slim as base
 
+LABEL fly_launch_runtime="Vite"
+
 # Vite app lives here
 WORKDIR /app
 
 # Set production environment
-ENV NODE_ENV="production"
-ARG YARN_VERSION=4.4.0
+ENV NODE_ENV=production
 RUN corepack enable yarn
 
 
@@ -18,24 +19,21 @@ FROM base as build
 
 # Install packages needed to build node modules
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
+    apt-get install -y python-is-python3 pkg-config build-essential
+
+# Copy application code first (needed for Yarn PnP)
+COPY --link . .
 
 # Install node modules
-COPY --link .yarnrc.yml package.json yarn.lock ./
 RUN yarn install --immutable
-
-# Copy application code
-COPY --link . .
 
 # Build application
 RUN yarn run build
 
-# Remove development dependencies
-RUN yarn workspaces focus --production
-
 
 # Final stage for app image
 FROM nginx
+
 COPY .docker/nginx.conf /etc/nginx/nginx.conf
 COPY .docker/default.conf /etc/nginx/conf.d/default.conf
 
@@ -43,5 +41,5 @@ COPY .docker/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 80
+EXPOSE 8080
 CMD [ "/usr/sbin/nginx", "-g", "daemon off;" ]

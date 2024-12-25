@@ -28,9 +28,9 @@
 body {
   min-width: calc(var(--body-min-width) - var(--body-padding-h) * 2);
   max-width: calc(var(--body-max-width) - var(--body-padding-h) * 2);
+  padding: var(--body-padding-v) var(--body-padding-h);
   margin-right: auto;
   margin-left: auto;
-  padding: var(--body-padding-v) var(--body-padding-h);
   color: var(--text-color);
   background: var(--page-color);
 }
@@ -40,30 +40,30 @@ p {
 }
 
 h1 {
+  padding: 0;
+  margin: 0;
   font-size: var(--font-size-xxl);
   font-weight: 800;
   line-height: var(--font-size-xxl);
-  margin: 0;
-  padding: 0;
 }
 
 h2 {
+  padding: 0;
+  margin: 0;
   font-size: var(--font-size-xl);
   font-weight: 500;
   line-height: var(--font-size-xl);
-  margin: 0;
-  padding: 0;
 }
 
 input[type='button'],
 input[type='submit'],
 input[type='reset'],
 button {
-  margin: 0;
   padding: var(--space-md);
-  border: 0;
-  background-color: var(--button-background-color);
+  margin: 0;
   appearance: none;
+  background-color: var(--button-background-color);
+  border: 0;
 }
 
 input[type='submit'] {
@@ -74,10 +74,10 @@ input[type='submit'] {
 input[type='text'],
 textarea {
   padding: var(--space-sm);
-  border: 1px solid var(--border-color);
+  appearance: none;
   outline: none;
   background-color: var(--page-color);
-  appearance: none;
+  border: 1px solid var(--border-color);
 
   &:focus {
     border-color: var(--focus-color);
@@ -99,8 +99,8 @@ a,
 a:visited,
 a:hover,
 a:active {
-  text-decoration: none;
   color: var(--link-color);
+  text-decoration: none;
 }
 
 a:active {
@@ -109,8 +109,8 @@ a:active {
 
 button.link {
   display: inline;
-  text-decoration: none;
   color: var(--link-color);
+  text-decoration: none;
   outline: none;
   background: none;
 }

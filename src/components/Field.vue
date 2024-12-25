@@ -85,7 +85,7 @@ const input = ref<HTMLInputElement | HTMLTextAreaElement | undefined>(undefined)
 
 const attribute = computed(() => {
   const [, , first, rest] = props.name.match(/^(\w+)(?:\[(\w+)]((?:\[\w+])*))?$/)!
-  return first + rest
+  return (first ?? '') + (rest ?? '')
 })
 const allErrorAttributes = computed(() => [attribute.value, ...props.errorAttributes])
 const fieldErrors = computed<ValidationError[]>(() =>
@@ -115,8 +115,8 @@ const errorStrings = computed(() =>
 
 input,
 textarea {
-  display: block;
   box-sizing: border-box;
+  display: block;
   width: 100%;
 }
 

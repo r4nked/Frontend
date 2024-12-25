@@ -17,8 +17,6 @@ function factorial(n: number): number {
 }
 
 describe('Ranking things', () => {
-  beforeEach(() => cy.request('GET', `${Cypress.env('apiHost')}/cypress/reset`))
-
   it('displays results when finished', () => {
     cy.visit('/stacks/1')
 

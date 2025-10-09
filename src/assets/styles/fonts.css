@@ -23,8 +23,9 @@
     local('Montserrat-ExtraLight'),
     url('https://fonts.gstatic.com/s/montserrat/v10/eWRmKHdPNWGn_iFyeEYja_bbaTZmtPDRvp9xUdyvPg4.woff2')
       format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
-    U+20AC, U+2212, U+2215;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
+    U+2215;
 }
 
 /* latin-ext */
@@ -50,8 +51,9 @@
     local('Montserrat-Light'),
     url('https://fonts.gstatic.com/s/montserrat/v10/IVeH6A3MiFyaSEiudUMXEweOulFbQKHxPa89BaxZzA0.woff2')
       format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
-    U+20AC, U+2212, U+2215;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
+    U+2215;
 }
 
 /* latin-ext */
@@ -77,8 +79,9 @@
     local('Montserrat-Regular'),
     url('https://fonts.gstatic.com/s/montserrat/v10/zhcz-_WihjSQC0oHJ9TCYAzyDMXhdD8sAj6OAJTFsBI.woff2')
       format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
-    U+20AC, U+2212, U+2215;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
+    U+2215;
 }
 
 /* latin-ext */
@@ -104,8 +107,9 @@
     local('Montserrat-Medium'),
     url('https://fonts.gstatic.com/s/montserrat/v10/BYPM-GE291ZjIXBWrtCweteM9fzAXBk846EtUMhet0E.woff2')
       format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
-    U+20AC, U+2212, U+2215;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
+    U+2215;
 }
 
 /* latin-ext */
@@ -131,8 +135,9 @@
     local('Montserrat-Bold'),
     url('https://fonts.gstatic.com/s/montserrat/v10/IQHow_FEYlDC4Gzy_m8fcmaVI6zN22yiurzcBKxPjFE.woff2')
       format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
-    U+20AC, U+2212, U+2215;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
+    U+2215;
 }
 
 /* latin-ext */
@@ -158,13 +163,14 @@
     local('Montserrat-ExtraBold'),
     url('https://fonts.gstatic.com/s/montserrat/v10/H8_7oktkjVeeX06kbAvc0GXcKQM3CJKNQg5O_z0AU2U.woff2')
       format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074,
-    U+20AC, U+2212, U+2215;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212,
+    U+2215;
 }
 
 body,
 input::placeholder,
 input {
-  font-family: Montserrat, 'Helvetica Neue LT Std', 'Helvetica Neue', 'Helvetica LT Std', Helvetica,
-    sans-serif;
+  font-family:
+    Montserrat, 'Helvetica Neue LT Std', 'Helvetica Neue', 'Helvetica LT Std', Helvetica, sans-serif;
 }

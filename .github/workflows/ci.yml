@@ -26,6 +26,6 @@ jobs:
     - name: Install dependencies
       run: corepack enable && yarn install
     - name: Run ESLint
-      run: yarn lint
+      run: yarn lint:eslint
     - name: Run Stylelint
-      run: yarn run stylelint
+      run: yarn run lint:stylelint

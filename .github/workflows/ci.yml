@@ -20,11 +20,10 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-#        cache: yarn
+        cache: yarn
         node-version-file: .nvmrc
-#        corepack: true
     - name: Install dependencies
-      run: corepack enable && yarn install
+      run: yarn install
     - name: Run ESLint
       run: yarn lint:eslint
     - name: Run Stylelint

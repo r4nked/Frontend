@@ -38,7 +38,7 @@ In order to test the full stack, you will need to check out and run the back-end
 too. An example Procfile that does this:
 
 ```
-backend: cd Backend && rvm 3.4.6@ranked exec rails server -b 127.0.0.1
+backend: cd Backend && rvm 3.4.8@ranked exec rails server -b 127.0.0.1
 frontend: cd Frontend && yarn dev
 ```
 
